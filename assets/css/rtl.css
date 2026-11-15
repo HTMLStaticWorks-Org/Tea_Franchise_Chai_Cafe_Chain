@@ -1,0 +1,59 @@
+/* ==========================================================================
+   CHAI KULHAD CO. — Full RTL Support Stylesheet (rtl.css)
+   Activated when dir="rtl" is set on the <html> element
+   ========================================================================== */
+
+html[dir="rtl"] {
+  direction: rtl;
+  text-align: right;
+}
+
+html[dir="rtl"] .dropdown-menu {
+  left: auto;
+  right: 0;
+}
+
+html[dir="rtl"] .nav-link::after {
+  left: auto;
+  right: 0;
+}
+
+html[dir="rtl"] .btn:hover svg {
+  transform: translateX(-3px);
+}
+
+@media (min-width: 1024.02px) {
+  html[dir="rtl"] .hero-split-content,
+  html[dir="rtl"] .form-field {
+    text-align: right;
+    align-items: flex-end;
+  }
+}
+
+html[dir="rtl"] .accordion-trigger {
+  text-align: right;
+}
+
+html[dir="rtl"] .floating-widgets {
+  right: auto;
+  left: var(--space-3);
+}
+
+html[dir="rtl"] .skip-link {
+  left: auto;
+  right: var(--space-2);
+}
+
+html[dir="rtl"] .scroll-progress-bar {
+  left: auto;
+  right: 0;
+}
+
+@keyframes marqueeScrollRTL {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(50%); }
+}
+
+html[dir="rtl"] .marquee-track {
+  animation-name: marqueeScrollRTL;
+}

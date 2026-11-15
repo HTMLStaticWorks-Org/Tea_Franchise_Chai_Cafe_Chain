@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <defs>
+    <linearGradient id="logoClay" x1="10" y1="20" x2="54" y2="58" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#C05A3A"/>
+      <stop offset="100%" stop-color="#5A3A22"/>
+    </linearGradient>
+  </defs>
+  <circle cx="32" cy="32" r="30" fill="#FBF4E8" stroke="#E3A12F" stroke-width="2"/>
+  <path d="M25 19C23 14 27 11 25 7" stroke="#E3A12F" stroke-width="2.2" stroke-linecap="round"/>
+  <path d="M32 17C30 12 34 9 32 5" stroke="#C05A3A" stroke-width="2.4" stroke-linecap="round"/>
+  <path d="M39 19C37 14 41 11 39 7" stroke="#E3A12F" stroke-width="2.2" stroke-linecap="round"/>
+  <path d="M17 24H47L43 50C42.2 53.5 37.8 55 32 55C26.2 55 21.8 53.5 21 50L17 24Z" fill="url(#logoClay)" stroke="#5A3A22" stroke-width="2"/>
+  <ellipse cx="32" cy="24" rx="15" ry="3.8" fill="#E3A12F" stroke="#5A3A22" stroke-width="1.8"/>
+  <path d="M19.5 34C25 36.2 39 36.2 44.5 34" stroke="#FBF4E8" stroke-width="1.5" stroke-dasharray="2.5 2.5"/>
+  <path d="M21 43C26 45 38 45 43 43" stroke="#E3A12F" stroke-width="1.5"/>
+</svg>

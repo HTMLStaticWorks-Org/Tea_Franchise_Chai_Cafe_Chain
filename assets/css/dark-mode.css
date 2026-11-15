@@ -1,0 +1,78 @@
+/* ==========================================================================
+   CHAI KULHAD CO. — Dark Mode Stylesheet (dark-mode.css)
+   Deep Roasted Tea (#1E1410) Palette with Saffron Gold & Terracotta Accents
+   ========================================================================== */
+
+html[data-theme="dark"] {
+  --bg-primary: #1E1410;            /* Deep Roasted Tea */
+  --bg-secondary: #281B15;          /* Warm Cardamom Roast */
+  --bg-elevated: #31211A;           /* Elevated Dark Kulhad Surface */
+  --bg-glass: rgba(30, 20, 16, 0.88);
+  --bg-dark-surface: #140D0A;
+  --bg-footer: #110A08;
+
+  --text-primary: #FBF4E8;          /* Warm Milk Cream Text */
+  --text-secondary: #DECAB2;        /* Muted Malai Cream */
+  --text-muted: #B0977D;
+
+  --border-color: rgba(227, 161, 47, 0.18);
+  --border-strong: rgba(227, 161, 47, 0.34);
+
+  --shadow-sm: 0 6px 20px rgba(0, 0, 0, 0.35);
+  --shadow-md: 0 14px 36px rgba(0, 0, 0, 0.48);
+  --shadow-lg: 0 24px 56px rgba(0, 0, 0, 0.62);
+}
+
+html[data-theme="dark"] .brand-logo {
+  color: var(--text-primary);
+}
+
+html[data-theme="dark"] .brand-logo-sub,
+html[data-theme="dark"] .section-tag,
+html[data-theme="dark"] .card-tag,
+html[data-theme="dark"] .script-label {
+  color: var(--color-accent);
+  background: rgba(227, 161, 47, 0.14);
+}
+
+html[data-theme="dark"] .card-icon {
+  color: var(--color-accent);
+  background: rgba(227, 161, 47, 0.12);
+}
+
+html[data-theme="dark"] .price-tag,
+html[data-theme="dark"] .stat-chip strong,
+html[data-theme="dark"] .countdown-unit strong {
+  color: var(--color-accent);
+}
+
+html[data-theme="dark"] .btn-outline {
+  color: var(--color-accent);
+  border-color: var(--color-accent);
+}
+html[data-theme="dark"] .btn-outline:hover {
+  background-color: var(--color-accent);
+  color: #1E1410;
+}
+
+html[data-theme="dark"] .diet-badge {
+  color: #A5D6A7;
+  background: rgba(165, 214, 167, 0.14);
+}
+
+html[data-theme="dark"] .cafe-locator-bar {
+  background: #281B15;
+  color: #FBF4E8;
+}
+html[data-theme="dark"] .cafe-locator-input {
+  color: #FBF4E8;
+}
+
+html[data-theme="dark"] .map-embed-shell {
+  background: linear-gradient(135deg, #281B15 0%, #1E1410 100%);
+}
+
+html[data-theme="dark"] .investment-table tr:last-child td {
+  color: var(--color-accent);
+  background: rgba(227, 161, 47, 0.12);
+}
