@@ -13,10 +13,9 @@
    */
   function initSplashLoader() {
     const splash = document.getElementById('splash-loader');
-    if (!splash) return;
-    setTimeout(function () {
-      splash.classList.add('is-hidden');
-    }, 480);
+    if (splash) {
+      splash.remove();
+    }
   }
 
   /**
@@ -94,12 +93,30 @@
   }
 
   /**
-   * 4. STICKY HEADER SHRINK, SCROLL PROGRESS BAR & BACK TO TOP
+   * 4. STICKY HEADER SHRINK, SCROLL PROGRESS BAR & SCROLL UP (BACK TO TOP)
    */
   function initScrollEffects() {
     const header = document.querySelector('.site-header');
     const progressBar = document.getElementById('scroll-progress-bar');
-    const backToTopBtn = document.getElementById('back-to-top');
+    let backToTopBtn = document.getElementById('back-to-top');
+
+    // Auto-mount scroll-to-top button if not already in DOM
+    if (!backToTopBtn) {
+      let floatingWidgets = document.querySelector('.floating-widgets');
+      if (!floatingWidgets) {
+        floatingWidgets = document.createElement('div');
+        floatingWidgets.className = 'floating-widgets';
+        document.body.appendChild(floatingWidgets);
+      }
+      backToTopBtn = document.createElement('button');
+      backToTopBtn.type = 'button';
+      backToTopBtn.id = 'back-to-top';
+      backToTopBtn.className = 'back-to-top';
+      backToTopBtn.setAttribute('aria-label', 'Scroll to top');
+      backToTopBtn.setAttribute('title', 'Scroll to top');
+      backToTopBtn.innerHTML = '<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>';
+      floatingWidgets.prepend(backToTopBtn);
+    }
 
     function onScroll() {
       const scrollY = window.scrollY || window.pageYOffset;
@@ -112,7 +129,7 @@
         progressBar.style.width = pct + '%';
       }
       if (backToTopBtn) {
-        backToTopBtn.classList.toggle('is-visible', scrollY > 360);
+        backToTopBtn.classList.toggle('is-visible', scrollY > 200);
       }
     }
 
@@ -140,17 +157,21 @@
       });
     }
 
-    // Keyboard & click support for Home dropdown
-    const dropdownToggle = document.querySelector('[data-dropdown-toggle]');
-    const dropdownParent = dropdownToggle ? dropdownToggle.closest('.has-dropdown') : null;
-    if (dropdownToggle && dropdownParent) {
-      dropdownToggle.addEventListener('click', function (e) {
-        if (window.innerWidth < 1024) {
-          e.preventDefault();
-          dropdownParent.classList.toggle('is-open');
+    // Keyboard & click support for Home dropdown (desktop & mobile)
+    const dropdownToggles = document.querySelectorAll('[data-dropdown-toggle]');
+    dropdownToggles.forEach(function (toggle) {
+      toggle.addEventListener('click', function (e) {
+        const parent = toggle.closest('.has-dropdown');
+        if (parent) {
+          if (window.innerWidth < 1024 || toggle.closest('.mobile-nav-drawer')) {
+            e.preventDefault();
+            parent.classList.toggle('is-open');
+            const expanded = parent.classList.contains('is-open');
+            toggle.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+          }
         }
       });
-    }
+    });
   }
 
   /**
@@ -623,24 +644,37 @@
         }
       });
     });
+  }
 
-    // Contact Page Interactive Map Hub Switcher
+  /**
+   * 14. CONTACT PAGE INTERACTIVE MAP HUB SWITCHER
+   */
+  function initMapTabs() {
     const mapCityBtns = document.querySelectorAll('[data-map-city]');
+    if (!mapCityBtns.length) return;
     const mapAddressTitle = document.getElementById('map-active-title');
     const mapAddressDetail = document.getElementById('map-active-address');
+    const mapIframe = document.getElementById('contact-map-iframe');
+    const mapDirectionsBtn = document.getElementById('map-directions-link');
 
     const mapLocations = {
       bengaluru: {
         title: 'Bengaluru Flagship Roastery & Franchise HQ',
-        address: 'Plot 42, 100 Feet Road, HAL 2nd Stage, Indiranagar, Bengaluru, Karnataka 560038'
+        address: 'Plot 42, 100 Feet Road, HAL 2nd Stage, Indiranagar, Bengaluru, Karnataka 560038',
+        embedUrl: 'https://maps.google.com/maps?q=Plot+42,+100+Feet+Road,+HAL+2nd+Stage,+Indiranagar,+Bengaluru,+Karnataka+560038&t=&z=15&ie=UTF8&iwloc=&output=embed',
+        directionsUrl: 'https://maps.google.com/?q=Plot+42+100+Feet+Road+Indiranagar+Bengaluru'
       },
       mumbai: {
         title: 'Mumbai Western Region Lounge & Training Hub',
-        address: 'Ground Floor, Heritage Court, 16th Road, Bandra West, Mumbai, Maharashtra 400050'
+        address: 'Ground Floor, Heritage Court, 16th Road, Bandra West, Mumbai, Maharashtra 400050',
+        embedUrl: 'https://maps.google.com/maps?q=16th+Road,+Bandra+West,+Mumbai,+Maharashtra+400050&t=&z=15&ie=UTF8&iwloc=&output=embed',
+        directionsUrl: 'https://maps.google.com/?q=16th+Road+Bandra+West+Mumbai'
       },
       delhi: {
         title: 'New Delhi Northern Territory Experience Center',
-        address: 'Block M-18, Outer Circle, Connaught Place, New Delhi 110001'
+        address: 'Block M-18, Outer Circle, Connaught Place, New Delhi 110001',
+        embedUrl: 'https://maps.google.com/maps?q=Connaught+Place,+New+Delhi+110001&t=&z=15&ie=UTF8&iwloc=&output=embed',
+        directionsUrl: 'https://maps.google.com/?q=Block+M-18+Connaught+Place+New+Delhi'
       }
     };
 
@@ -655,12 +689,19 @@
         btn.classList.add('is-selected');
         if (mapAddressTitle) mapAddressTitle.textContent = loc.title;
         if (mapAddressDetail) mapAddressDetail.textContent = loc.address;
+        if (mapIframe && loc.embedUrl) {
+          mapIframe.src = loc.embedUrl;
+          mapIframe.title = 'Chai Kulhad Co. ' + loc.title;
+        }
+        if (mapDirectionsBtn && loc.directionsUrl) {
+          mapDirectionsBtn.href = loc.directionsUrl;
+        }
       });
     });
   }
 
   /**
-   * 14. 404 PAGE QUICK SEARCH
+   * 15. 404 PAGE QUICK SEARCH
    */
   function init404Search() {
     const searchForm = document.getElementById('error-search-form');
@@ -704,6 +745,7 @@
     initROICalculator();
     initAccordions();
     initForms();
+    initMapTabs();
     init404Search();
   });
 })();

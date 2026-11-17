@@ -18,16 +18,6 @@
   <a href="#main-content" class="skip-link">Skip to main content</a>
   <div id="scroll-progress-bar" class="scroll-progress-bar" aria-hidden="true"></div>
 
-  <div id="splash-loader" class="splash-loader" role="status" aria-label="Loading 404 Page">
-    <div class="splash-kulhad-wrap">
-      <div class="splash-kulhad-cup">
-        <div class="splash-kulhad-fill"></div>
-      </div>
-    </div>
-    <p class="splash-brand">Chai Kulhad Co.</p>
-    <span class="splash-sub">Warming up a fresh kettle...</span>
-  </div>
-
   <div id="custom-cursor" class="custom-cursor" aria-hidden="true"></div>
 
   <!-- =====================================================================
@@ -55,9 +45,9 @@
               <li><a href="home-2.html" class="dropdown-link">Home 2 — Cinematic Lounge</a></li>
             </ul>
           </li>
+          <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
           <li class="nav-item"><a href="menu.html" class="nav-link">Menu</a></li>
           <li class="nav-item"><a href="franchise.html" class="nav-link">Franchise</a></li>
-          <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
           <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
         </ul>
       </nav>
@@ -80,13 +70,28 @@
 
     <div id="mobile-nav-drawer" class="mobile-nav-drawer" aria-label="Mobile Navigation">
       <ul class="mobile-nav-list">
-        <li><a href="index.html" class="mobile-nav-link">Home 1 (Brand Home)</a></li>
-        <li><a href="home-2.html" class="mobile-nav-link">Home 2 (Cinematic Lounge)</a></li>
-        <li><a href="menu.html" class="mobile-nav-link">Menu</a></li>
-        <li><a href="franchise.html" class="mobile-nav-link">Franchise Opportunity</a></li>
-        <li><a href="about.html" class="mobile-nav-link">About Us</a></li>
-        <li><a href="contact.html" class="mobile-nav-link">Contact &amp; Enquiry</a></li>
+        <li class="mobile-nav-item has-dropdown">
+          <a href="index.html" class="mobile-nav-link" data-dropdown-toggle aria-haspopup="true" aria-expanded="false">
+            <span>Home</span>
+            <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="6 9 12 15 18 9"/></svg>
+          </a>
+          <ul class="mobile-dropdown-menu" aria-label="Home Page Layouts">
+            <li><a href="index.html" class="mobile-dropdown-link">Home 1 — Brand Story</a></li>
+            <li><a href="home-2.html" class="mobile-dropdown-link">Home 2 — Cinematic Lounge</a></li>
+          </ul>
+        </li>
+        <li class="mobile-nav-item"><a href="about.html" class="mobile-nav-link">About</a></li>
+        <li class="mobile-nav-item"><a href="menu.html" class="mobile-nav-link">Menu</a></li>
+        <li class="mobile-nav-item"><a href="franchise.html" class="mobile-nav-link">Franchise</a></li>
+        <li class="mobile-nav-item"><a href="contact.html" class="mobile-nav-link">Contact</a></li>
       </ul>
+      <div class="mobile-nav-actions">
+        <button type="button" class="icon-btn" data-theme-toggle aria-label="Toggle dark or light theme">
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        </button>
+        <button type="button" class="icon-btn" data-rtl-toggle aria-label="Toggle RTL layout">RTL</button>
+      </div>
       <a href="franchise.html" class="btn btn-primary">
         <span>Get a Franchise</span>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
@@ -98,7 +103,7 @@
     <!-- ===================================================================
          SECTION 1.7.1: 404 ERROR SECTION ("OOPS, THIS CHAI WENT COLD")
          =================================================================== -->
-    <section class="section" aria-labelledby="error-404-heading">
+    <section class="section hero-404" aria-labelledby="error-404-heading">
       <div class="container">
         <div class="tilt-card" style="max-width:760px;margin:0 auto;">
           <div class="card-body">
@@ -219,6 +224,16 @@
       </div>
     </div>
   </footer>
+
+  <!-- Floating Widgets: Scroll Up & WhatsApp Enquiry -->
+  <div class="floating-widgets">
+    <button type="button" id="back-to-top" class="back-to-top" aria-label="Scroll to top" title="Scroll to top">
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+    </button>
+    <a href="https://wa.me/918045689200?text=Hi%20Chai%20Kulhad%20Co.%2C%20I%20would%20like%20to%20enquire%20about%20a%20franchise." class="floating-whatsapp" aria-label="Chat on WhatsApp for Franchise Enquiry" title="Chat on WhatsApp" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+    </a>
+  </div>
 
   <script src="../assets/js/plugins/tilt.js"></script>
   <script src="../assets/js/plugins/counters.js"></script>

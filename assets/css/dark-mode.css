@@ -35,6 +35,24 @@ html[data-theme="dark"] .script-label {
   background: rgba(227, 161, 47, 0.14);
 }
 
+html[data-theme="dark"] .masonry-caption .card-tag {
+  color: #FFE6A3 !important;
+  background: rgba(18, 11, 8, 0.94) !important;
+  border-color: rgba(227, 161, 47, 0.75) !important;
+}
+
+.masonry-caption h3,
+.tilt-card .masonry-caption h3,
+.masonry-card .masonry-caption h3 {
+  color: #FFFDF9 !important;
+}
+
+.masonry-caption p,
+.tilt-card .masonry-caption p,
+.masonry-card .masonry-caption p {
+  color: #FBF4E8 !important;
+}
+
 html[data-theme="dark"] .card-icon {
   color: var(--color-accent);
   background: rgba(227, 161, 47, 0.12);
@@ -75,4 +93,20 @@ html[data-theme="dark"] .map-embed-shell {
 html[data-theme="dark"] .investment-table tr:last-child td {
   color: var(--color-accent);
   background: rgba(227, 161, 47, 0.12);
+}
+
+html[data-theme="dark"] .counter-number {
+  color: var(--color-accent);
+}
+
+html[data-theme="dark"] .back-to-top {
+  background: #251610;
+  color: var(--color-accent);
+  border-color: var(--color-accent);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+}
+html[data-theme="dark"] .back-to-top:hover {
+  background: var(--color-accent) !important;
+  color: #140C08 !important;
+  box-shadow: 0 12px 28px rgba(227, 161, 47, 0.4) !important;
 }
